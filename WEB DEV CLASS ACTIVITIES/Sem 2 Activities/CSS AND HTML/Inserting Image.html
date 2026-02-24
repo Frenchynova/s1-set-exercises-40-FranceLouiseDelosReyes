@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CSS Text Properties Practice</title>
+
+  <style>
+    /* Basic page setup */
+    body {
+      background-color: #ffffff;              /* (not required text prop, but normal) */
+      color: #222;                            /* color */
+      font-family: Arial, Verdana, sans-serif;/* font-family */
+      font-size: 16px;                        /* font-size */
+      line-height: 1.7;                       /* line-height */
+      margin: 20px;
+    }
+
+    /* Title shows several text properties */
+    h1 {
+      text-align: center;                     /* text-align */
+      font-weight: bold;                      /* font-weight */
+      letter-spacing: 2px;                    /* letter-spacing */
+      text-transform: uppercase;              /* text-transform */
+      text-shadow: 1px 1px 0 #ccc;            /* text-shadow */
+      margin-bottom: 5px;
+    }
+
+    h2 {
+      text-align: left;                       /* text-align */
+      text-decoration: underline;             /* text-decoration */
+      margin-top: 20px;
+    }
+
+    /* Paragraph demonstrates indent + spacing */
+    p {
+      text-indent: 30px;                      /* text-indent */
+      word-spacing: 3px;                      /* word-spacing */
+      margin: 10px 0;
+    }
+
+    /* Small “highlight” example */
+    .note {
+      font-style: italic;                     /* font-style */
+      font-weight: 600;                       /* font-weight */
+      text-decoration: none;                  /* text-decoration */
+    }
+
+    /* Simple image row */
+    .pics {
+      text-align: center;                     /* text-align */
+      margin-top: 15px;
+    }
+
+    .pics img {
+      width: 220px;
+      height: 150px;
+      object-fit: cover;
+      margin: 6px;
+      border: 2px solid #444;
+    }
+
+    /* Another small example */
+    .caps {
+      text-transform: capitalize;             /* text-transform */
+      letter-spacing: 1px;                    /* letter-spacing */
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>CSS Text Properties</h1>
+  <p class="caps">my practice page for lecture 2</p>
+
+  <h2>Paragraph Practice</h2>
+  <p>
+    This is a basic webpage showing some CSS text properties from the lecture slides.
+    The paragraph uses indentation, spacing between words, and line height to make text easier to read.
+  </p>
+
+  <p class="note">
+    This sentence is italic and semi-bold using font-style and font-weight.
+  </p>
+
+  <h2>Images</h2>
+  <p>
+    Below are three embedded images. The images are centered and have a simple border.
+  </p>
+
+  <div class="pics">
+    <img src="https://picsum.photos/id/1015/800/600" alt="Image 1">
+    <img src="https://picsum.photos/id/1025/800/600" alt="Image 2">
+    <img src="https://picsum.photos/id/1035/800/600" alt="Image 3">
+  </div>
+
+  <h2>More Text Styling</h2>
+  <p>
+    The heading at the top demonstrates text-align, text-transform, letter-spacing, and text-shadow.
+    Also, this page uses font-family and font-size for the main text.
+  </p>
+
+</body>
+</html>
