@@ -1,0 +1,105 @@
+/* ---------------------------
+   basic reset
+   keeps spacing predictable
+---------------------------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Times New Roman", Times, serif;
+  color: #000;
+  background: #fff;
+}
+
+/*
+  Page padding creates the gap between
+  the browser edge and the grey boxes.
+  This matches the screenshot layout.
+*/
+.page {
+  padding: 18px 20px;
+}
+
+/* ---------------------------
+   header banner
+---------------------------- */
+.banner {
+  background: #d9d9d9;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.banner h1 {
+  margin: 0 0 14px 0;
+  font-size: 56px;
+  font-weight: bold;
+}
+
+.banner nav a {
+  color: #0000ee;
+  text-decoration: underline;
+  font-size: 22px;
+  margin-right: 16px;
+}
+
+/* ---------------------------
+   headings + intro text
+---------------------------- */
+.recipe-header h2 {
+  font-size: 44px;
+  margin: 0 0 10px 0;
+}
+
+.recipe-header p {
+  font-size: 22px;
+  margin-bottom: 34px;
+}
+
+h3 {
+  font-size: 42px;
+  margin-bottom: 14px;
+}
+
+/* ---------------------------
+   lists
+---------------------------- */
+ul,
+ol {
+  font-size: 22px;
+  margin-left: 42px;
+  line-height: 1.35;
+}
+
+ol li {
+  margin-bottom: 6px;
+}
+
+/* ---------------------------
+   grey info box
+---------------------------- */
+.callout {
+  background: #d9d9d9;
+  padding: 22px;
+  margin: 26px 0 40px 0;
+}
+
+.callout p {
+  margin: 0;
+  font-size: 22px;
+}
+
+/* ---------------------------
+   footer
+---------------------------- */
+.footer {
+  background: #d9d9d9;
+  padding: 26px 20px;
+  margin-top: 40px;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 22px;
+}

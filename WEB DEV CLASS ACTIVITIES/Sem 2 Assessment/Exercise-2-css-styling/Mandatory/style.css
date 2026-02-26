@@ -1,0 +1,92 @@
+/* ===============================
+   Base setup
+================================ */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #bdbdbd; /* outer grey background */
+  font-family: "Inter", Arial, sans-serif;
+  color: #111;
+}
+
+/* space around main panel */
+.page {
+  padding-top: 45px;
+}
+
+/* ===============================
+   Main light panel
+   (rounded TOP only)
+================================ */
+.panel {
+  width: 920px;
+  margin: 0 auto;
+  background: #e8e8e8;
+
+  /* only top corners rounded */
+  border-radius: 34px 34px 0 0;
+
+  padding: 70px 80px 100px;
+
+  /* ensures panel reaches bottom */
+  min-height: calc(100vh - 45px);
+}
+
+/* ===============================
+   Headings
+================================ */
+
+/* huge main title */
+h1 {
+  font-family: "Anton", sans-serif;
+  text-align: center;
+  color: #3e8f12;
+  font-size: 120px;
+  line-height: 1;
+  margin: 0 0 50px;
+  letter-spacing: 1px;
+}
+
+/* section titles */
+h2 {
+  font-family: "Anton", sans-serif;
+  text-align: center;
+  color: #3e8f12;
+  font-size: 72px;
+  margin: 55px 0 25px;
+  line-height: 1.05;
+}
+
+/* green box title */
+h3 {
+  font-family: "Anton", sans-serif;
+  font-size: 40px;
+  margin: 0 0 15px;
+}
+
+/* ===============================
+   Paragraph styling
+================================ */
+p {
+  font-size: 20px;
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+/* ===============================
+   Green information box
+================================ */
+.fact-box {
+  background: #3e8f12;
+  color: white;
+  border-radius: 30px;
+  padding: 32px;
+  margin: 40px 0;
+}
+
+.fact-box p {
+  margin: 0;
+}
