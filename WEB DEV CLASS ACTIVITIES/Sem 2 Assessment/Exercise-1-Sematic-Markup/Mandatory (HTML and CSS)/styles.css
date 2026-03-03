@@ -1,84 +1,101 @@
-/* ---------------------------
-   basic reset
-   keeps spacing predictable
----------------------------- */
+/* =========================
+   BASIC RESET
+   ========================= */
+
+/* Makes sizing easier to manage (padding and borders included in width) */
 * {
   box-sizing: border-box;
 }
 
 body {
-  margin: 0;
+  margin: 0; /* removes default browser spacing */
   font-family: "Times New Roman", Times, serif;
   color: #000;
   background: #fff;
 }
 
 /*
-  Page padding creates the gap between
-  the browser edge and the grey boxes.
-  This matches the screenshot layout.
+  Adds space around the whole layout so
+  the grey sections don’t touch the browser edges.
 */
 .page {
   padding: 18px 20px;
 }
 
-/* ---------------------------
-   header banner
----------------------------- */
+
+/* =========================
+   HEADER BANNER
+   ========================= */
+
+/* Grey header area at the top of the page */
 .banner {
   background: #d9d9d9;
   padding: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 30px; /* space before main content */
 }
 
+/* Main site title */
 .banner h1 {
   margin: 0 0 14px 0;
   font-size: 56px;
   font-weight: bold;
 }
 
+/* Navigation links inside the banner */
 .banner nav a {
   color: #0000ee;
   text-decoration: underline;
   font-size: 22px;
-  margin-right: 16px;
+  margin-right: 16px; /* spacing between links */
 }
 
-/* ---------------------------
-   headings + intro text
----------------------------- */
+
+/* =========================
+   HEADINGS + INTRO TEXT
+   ========================= */
+
+/* Recipe title */
 .recipe-header h2 {
   font-size: 44px;
   margin: 0 0 10px 0;
 }
 
+/* Short description under the recipe title */
 .recipe-header p {
   font-size: 22px;
   margin-bottom: 34px;
 }
 
+/* Section headings like Ingredients and Instructions */
 h3 {
   font-size: 42px;
   margin-bottom: 14px;
 }
 
-/* ---------------------------
-   lists
----------------------------- */
+
+/* =========================
+   LIST STYLING
+   ========================= */
+
+/* Applies to both ingredient list and instruction list */
 ul,
 ol {
   font-size: 22px;
-  margin-left: 42px;
-  line-height: 1.35;
+  margin-left: 42px; /* indent lists slightly */
+  line-height: 1.35; /* improves readability */
 }
 
+/* Adds a little spacing between instruction steps */
 ol li {
   margin-bottom: 6px;
 }
 
-/* ---------------------------
-   grey info box
----------------------------- */
+
+/* =========================
+   INFO / CALLOUT BOX
+   ========================= */
+
+/* Grey box used for extra cooking tips */
 .callout {
   background: #d9d9d9;
   padding: 22px;
@@ -90,9 +107,12 @@ ol li {
   font-size: 22px;
 }
 
-/* ---------------------------
-   footer
----------------------------- */
+
+/* =========================
+   FOOTER
+   ========================= */
+
+/* Footer bar at the bottom */
 .footer {
   background: #d9d9d9;
   padding: 26px 20px;

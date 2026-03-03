@@ -2,38 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+
+  <!-- Helps the page scale correctly on phones and smaller screens -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Text shown in the browser tab -->
   <title>Cooking with Andy! — Chocolate Chip Cookies</title>
 
   <style>
     
+    /* =========================
+       BASIC PAGE STYLING
+       ========================= */
+
+    /* Sets default spacing, font, and overall text appearance */
     body {
       margin: 0;             
-      padding: 12px;          
+      padding: 12px;          /* adds space around the page content */
       font-family: Georgia, "Times New Roman", serif;
       line-height: 1.4;
       color: #111;
       background: #fff;
     }
 
-    /* Grey boxes */
+    /* Grey background sections used for header, note box, and footer */
     .site-header,
     .note,
     .site-footer {
       background: #d3d3d3;
     }
 
-    /* Header */
+    /* =========================
+       HEADER
+       ========================= */
+
+    /* Top banner area */
     .site-header {
       padding: 22px 20px 26px;
     }
 
+    /* Main website title */
     .site-header h1 {
       margin: 0;
       font-size: 54px;
       font-weight: 700;
     }
 
+    /* Navigation links under the title */
     .site-nav {
       margin-top: 18px;
     }
@@ -42,46 +57,65 @@
       color: #0000ee;
       text-decoration: underline;
       font-size: 22px;
-      margin-right: 6px;
+      margin-right: 6px; /* small spacing between links */
     }
 
-    /* Main content spacing */
+    /* =========================
+       MAIN CONTENT TEXT
+       ========================= */
+
+    /* Recipe title */
     h2 {
       font-size: 40px;
       margin: 28px 0 10px;
       font-weight: 700;
     }
 
+    /* Paragraph styling for description text */
     p {
       font-size: 22px;
       margin: 0 0 24px;
     }
 
+    /* Section headings like Ingredients and Instructions */
     h3 {
       font-size: 40px;
       margin: 22px 0 12px;
       font-weight: 700;
     }
 
+    /* Ingredient list styling */
     ul {
       margin: 0 0 24px 46px;
       font-size: 22px;
     }
 
-    /* Note box */
+    /* =========================
+       NOTE / TIP BOX
+       ========================= */
+
+    /* Highlighted box for extra cooking tips */
     .note {
       padding: 26px 22px;
       margin: 18px 0 30px;
       font-size: 24px;
     }
 
-    /* Instructions list */
+    /* =========================
+       INSTRUCTIONS LIST
+       ========================= */
+
+    /* Ordered list for recipe steps */
     ol {
       margin: 0 0 28px 58px;
       font-size: 22px;
     }
 
-    /* Footer */
+    /* =========================
+       FOOTER
+       ========================= */
+
+    /* Footer bar at the bottom of the page */
     .site-footer {
       padding: 26px 20px;
       margin-top: 30px;
@@ -96,8 +130,12 @@
 </head>
 
 <body>
+
+  <!-- Header containing site title and navigation -->
   <header class="site-header">
     <h1>Cooking with Andy!</h1>
+
+    <!-- Main navigation menu -->
     <nav class="site-nav" aria-label="Primary">
       <a href="#">Home</a>
       <a href="#">Blog</a>
@@ -106,9 +144,11 @@
   </header>
 
   <main>
+    <!-- Recipe title and short description -->
     <h2>Chocolate Chip Cookies</h2>
     <p>Delicious homemade cookies with gooey chocolate chips!</p>
 
+    <!-- Ingredients section -->
     <h3>Ingredients</h3>
     <ul>
       <li>2 1/4 cups flour</li>
@@ -121,11 +161,13 @@
       <li>2 cups semisweet chocolate chips</li>
     </ul>
 
+    <!-- Extra cooking tip shown in a highlighted box -->
     <div class="note">
       If you don't have eggs, you can use a suitable egg substitute like applesauce,
       mashed bananas, or yogurt. Use 1/4 cup of the substitute for each egg in the recipe.
     </div>
 
+    <!-- Step-by-step instructions -->
     <h3>Instructions</h3>
     <ol>
       <li>Preheat your oven to 190°C.</li>
@@ -146,6 +188,7 @@
     </ol>
   </main>
 
+  <!-- Footer with copyright information -->
   <footer class="site-footer">
     <p>Cooking With Andy © 2024</p>
   </footer>
