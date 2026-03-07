@@ -1,0 +1,97 @@
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+background:#ee66af;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+/* SCALE ENTIRE PAGE */
+.site-wrapper{
+width:700px;
+margin:0 auto;
+transform:scale(1.45);
+transform-origin:top center;
+}
+
+/* HEADER */
+
+header{
+position:relative;
+padding-top:10px;
+height:120px;
+}
+
+.divider{
+display:block;
+width:400px;
+margin:auto;
+}
+
+.cart{
+position:absolute;
+right:165px;
+top:85px;
+}
+
+.cart img{
+width:32px;
+}
+
+/* GALLERY */
+
+.gallery{
+width:380px;
+margin:0 auto;
+}
+
+.photo-block{
+margin-bottom:8px;
+}
+
+.photo-block img{
+width:100%;
+display:block;
+}
+
+/* CAPTION */
+
+.caption{
+background:#f2efdc;
+color:#5ce7ff;
+font-weight:bold;
+font-size:18px;
+padding:3px;
+margin:0;
+}
+
+/* BUTTON */
+
+button{
+margin-top:6px;
+font-size:12px;
+padding:2px 6px;
+}
+
+/* FOOTER */
+
+footer{
+padding-left:5px;
+}
+
+.copyright{
+font-size:22px;
+font-weight:bold;
+}
+
+.footer-links{
+padding-left:20px;
+}
+
+.footer-links a{
+color:blue;
+font-weight:bold;
+font-size:18px;
+}
