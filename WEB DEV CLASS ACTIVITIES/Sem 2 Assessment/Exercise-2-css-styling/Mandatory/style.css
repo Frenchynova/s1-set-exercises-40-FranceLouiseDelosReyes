@@ -1,45 +1,52 @@
 /* ===============================
    Base setup
 ================================ */
+
+/* Makes padding and borders included in element size calculations */
 * {
   box-sizing: border-box;
 }
 
+/* Sets the overall page background and default font for the site */
 body {
   margin: 0;
-  background: #bdbdbd; /* outer grey background */
+  background: #bdbdbd; /* grey background behind the main panel */
   font-family: "Inter", Arial, sans-serif;
   color: #111;
 }
 
-/* space around main panel */
+/* Adds space above the main panel so it isn't touching the top of the page */
 .page {
   padding-top: 45px;
 }
 
+
 /* ===============================
    Main light panel
-   (rounded TOP only)
 ================================ */
+
+/* Main container that holds all the story content */
 .panel {
   width: 920px;
-  margin: 0 auto;
+  margin: 0 auto; /* centers the panel horizontally */
   background: #e8e8e8;
 
-  /* only top corners rounded */
+  /* only the top corners are rounded to match the design */
   border-radius: 34px 34px 0 0;
 
+  /* inner spacing so text is not touching the edges */
   padding: 70px 80px 100px;
 
-  /* ensures panel reaches bottom */
+  /* ensures the panel extends toward the bottom of the screen */
   min-height: calc(100vh - 45px);
 }
+
 
 /* ===============================
    Headings
 ================================ */
 
-/* huge main title */
+/* Large main title at the top of the page */
 h1 {
   font-family: "Anton", sans-serif;
   text-align: center;
@@ -50,7 +57,7 @@ h1 {
   letter-spacing: 1px;
 }
 
-/* section titles */
+/* Section headings for each part of the story */
 h2 {
   font-family: "Anton", sans-serif;
   text-align: center;
@@ -60,25 +67,31 @@ h2 {
   line-height: 1.05;
 }
 
-/* green box title */
+/* Title used inside the green fact box */
 h3 {
   font-family: "Anton", sans-serif;
   font-size: 40px;
   margin: 0 0 15px;
 }
 
+
 /* ===============================
    Paragraph styling
 ================================ */
+
+/* Controls the size and spacing of all body text */
 p {
   font-size: 20px;
   line-height: 1.65;
   margin-bottom: 24px;
 }
 
+
 /* ===============================
    Green information box
 ================================ */
+
+/* Highlight box used to show the "Did you know?" fact */
 .fact-box {
   background: #3e8f12;
   color: white;
@@ -87,6 +100,7 @@ p {
   margin: 40px 0;
 }
 
+/* Removes extra spacing inside the fact box paragraph */
 .fact-box p {
   margin: 0;
 }

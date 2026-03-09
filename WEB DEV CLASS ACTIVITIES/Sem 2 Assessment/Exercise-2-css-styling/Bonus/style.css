@@ -1,8 +1,12 @@
 /* =========================
    Reset + theme
 ========================= */
+
+/* Makes padding and borders included in element width/height */
 * { box-sizing: border-box; }
 
+/* These are CSS variables I created to store my main colors and shadows.
+   This makes it easier to reuse colors across the design. */
 :root{
   --bg0:#070a08;
   --bg1:#0b130e;
@@ -28,6 +32,9 @@ html, body{
   margin:0;
   padding:0;
   font-family:"Inter", Arial, sans-serif;
+
+  /* I layered gradients to create a textured background
+     instead of using an image */
   background:
     radial-gradient(900px 520px at 20% 0%, rgba(62,143,18,0.35) 0%, rgba(62,143,18,0) 60%),
     radial-gradient(900px 520px at 85% 10%, rgba(223,247,213,0.18) 0%, rgba(223,247,213,0) 60%),
@@ -45,23 +52,30 @@ html, body{
   padding:10px 12px;
   border-radius:12px;
 }
+
+/* When focused, the skip link becomes visible so keyboard users can use it */
 .skip-link:focus{
   left:16px;
   top:16px;
   z-index:999;
 }
 
+
 /* =========================
    Hero
 ========================= */
+
 .hero{
   padding: 60px 18px 34px;
   border-bottom: 1px solid rgba(255,255,255,0.10);
+
+  /* relative positioning is needed because I add a background overlay
+     using ::before */
   position: relative;
   overflow:hidden;
 }
 
-/* subtle diagonal grid */
+/* Decorative background grid behind the hero section */
 .hero::before{
   content:"";
   position:absolute;
@@ -84,6 +98,7 @@ html, body{
   margin: 0 auto;
 }
 
+/* Small label shown above the page title */
 .badge{
   display:inline-block;
   margin:0 0 12px;
@@ -97,6 +112,7 @@ html, body{
   letter-spacing: 0.4px;
 }
 
+/* Large hero heading */
 .hero h1{
   margin: 0;
   font-family: "Anton", sans-serif;
@@ -114,12 +130,14 @@ html, body{
   max-width: 68ch;
 }
 
-/* hero nav buttons */
+
+/* Navigation buttons that jump to each section */
 .hero-nav{
   display:flex;
   gap:10px;
   flex-wrap:wrap;
 }
+
 .hero-nav a{
   text-decoration:none;
   color: rgba(234,255,223,0.95);
@@ -128,20 +146,26 @@ html, body{
   padding: 10px 14px;
   border-radius: 999px;
   backdrop-filter: blur(8px);
+
+  /* Small animation when hovering */
   transition: transform 160ms ease, background 160ms ease;
 }
+
 .hero-nav a:hover{
   transform: translateY(-1px);
   background: rgba(255,255,255,0.10);
 }
 
+
 /* =========================
    Main card
 ========================= */
+
 .page{
   padding: 26px 18px 44px;
 }
 
+/* Main container for the content area */
 .card{
   max-width: 1060px;
   margin: 0 auto;
@@ -153,17 +177,22 @@ html, body{
   overflow: hidden;
 }
 
+
 /* layout with timeline rail */
+
+/* Grid layout used to create the vertical timeline effect */
 .layout{
   display:grid;
   grid-template-columns: 56px 1fr;
 }
 
+/* Decorative left column for the timeline line */
 .rail{
   position: relative;
   background: linear-gradient(180deg, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.00) 100%);
 }
 
+/* Vertical timeline line */
 .rail-line{
   position:absolute;
   left: 50%;
@@ -178,19 +207,23 @@ html, body{
   padding: 10px 0;
 }
 
+
 /* =========================
    Sections
 ========================= */
+
+/* Each story section of the page */
 .section{
   padding: 30px 34px 28px;
   position: relative;
 }
 
+/* Adds a divider between sections */
 .section + .section{
   border-top: 1px solid rgba(0,0,0,0.10);
 }
 
-/* section header with dot tied to rail */
+/* Section heading layout */
 .section-head{
   display:flex;
   align-items:center;
@@ -198,13 +231,13 @@ html, body{
   margin-bottom: 12px;
 }
 
+/* Decorative dot that connects to the timeline */
 .dot{
   width: 14px;
   height: 14px;
   border-radius: 999px;
   background: linear-gradient(180deg, var(--green) 0%, var(--green2) 100%);
   box-shadow: 0 10px 22px rgba(47,111,13,0.35);
-  flex: 0 0 auto;
 }
 
 h2{
@@ -215,17 +248,12 @@ h2{
   color: var(--green2);
 }
 
-p{
-  margin: 0 0 16px;
-  font-size: 18px;
-  line-height: 1.75;
-  color: rgba(14,17,16,0.92);
-  max-width: 78ch;
-}
 
 /* =========================
    Feature / fact box
 ========================= */
+
+/* Highlight box used to display the "Did you know?" fun fact */
 .feature{
   margin-top: 22px;
   border-radius: 18px;
@@ -239,41 +267,11 @@ p{
   overflow:hidden;
 }
 
-.feature-top{
-  display:flex;
-  align-items:baseline;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 8px;
-}
-
-.feature h3{
-  margin:0;
-  font-family:"Anton", sans-serif;
-  font-size: 34px;
-  letter-spacing: 0.35px;
-}
-
-.feature-tag{
-  margin:0;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.16);
-  border: 1px solid rgba(255,255,255,0.22);
-  color: rgba(255,255,255,0.92);
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.feature-text{
-  margin:0;
-  color: rgba(255,255,255,0.95);
-  max-width: 80ch;
-}
 
 /* =========================
    Footer
 ========================= */
+
 .footer{
   max-width: 1060px;
   margin: 18px auto 0;
@@ -281,9 +279,12 @@ p{
   font-size: 14px;
 }
 
+
 /* =========================
    Mobile polish
 ========================= */
+
+/* Responsive adjustments for smaller screens */
 @media (max-width: 720px){
   .hero h1{ font-size: 64px; }
   .layout{ grid-template-columns: 1fr; }
@@ -292,7 +293,8 @@ p{
   h2{ font-size: 38px; }
 }
 
-/* motion safety */
+
+
 @media (prefers-reduced-motion: reduce){
   .hero-nav a{ transition: none; }
 }
