@@ -1,300 +1,378 @@
 /* =========================
-   Reset + theme
+   RESET + THEME
 ========================= */
 
-/* Makes padding and borders included in element width/height */
-* { box-sizing: border-box; }
-
-/* These are CSS variables I created to store my main colors and shadows.
-   This makes it easier to reuse colors across the design. */
-:root{
-  --bg0:#070a08;
-  --bg1:#0b130e;
-  --bg2:#0f1f16;
-
-  --text:#0e1110;
-  --muted:rgba(14,17,16,0.72);
-
-  --glass: rgba(255,255,255,0.82);
-  --glass2: rgba(255,255,255,0.68);
-
-  --green:#3e8f12;
-  --green2:#2f6f0d;
-  --mint:#dff7d5;
-
-  --border: rgba(0,0,0,0.10);
-  --shadow: 0 30px 80px rgba(0,0,0,0.35);
-  --soft: 0 16px 40px rgba(0,0,0,0.20);
+/* This makes width and height include padding and border */
+* {
+  box-sizing: border-box;
 }
 
-/* Page background with subtle pattern */
-html, body{
-  margin:0;
-  padding:0;
-  font-family:"Inter", Arial, sans-serif;
+/* These are CSS variables for colors and shadows */
+:root {
+  --bg0: #070a08;
+  --bg1: #0b130e;
+  --bg2: #0f1f16;
 
-  /* I layered gradients to create a textured background
-     instead of using an image */
-  background:
-    radial-gradient(900px 520px at 20% 0%, rgba(62,143,18,0.35) 0%, rgba(62,143,18,0) 60%),
-    radial-gradient(900px 520px at 85% 10%, rgba(223,247,213,0.18) 0%, rgba(223,247,213,0) 60%),
-    linear-gradient(180deg, var(--bg2) 0%, var(--bg1) 45%, var(--bg0) 100%);
+  --text: #0e1110;
+  --muted: rgba(14, 17, 16, 0.72);
+
+  --glass: rgba(255, 255, 255, 0.82);
+  --glass2: rgba(255, 255, 255, 0.68);
+
+  --green: #3e8f12;
+  --green2: #2f6f0d;
+  --mint: #dff7d5;
+
+  --border: rgba(0, 0, 0, 0.1);
+  --shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+  --soft: 0 16px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Smooth scrolling when clicking anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Main page background */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", Arial, sans-serif;
   color: var(--text);
-}
 
-/* accessibility */
-.skip-link{
-  position:absolute;
-  left:-999px;
-  top:-999px;
-  background:#000;
-  color:#fff;
-  padding:10px 12px;
-  border-radius:12px;
+  /* Layered gradients used instead of an image background */
+  background:
+    radial-gradient(900px 520px at 20% 0%, rgba(62, 143, 18, 0.35) 0%, rgba(62, 143, 18, 0) 60%),
+    radial-gradient(900px 520px at 85% 10%, rgba(223, 247, 213, 0.18) 0%, rgba(223, 247, 213, 0) 60%),
+    linear-gradient(180deg, var(--bg2) 0%, var(--bg1) 45%, var(--bg0) 100%);
 }
-
-/* When focused, the skip link becomes visible so keyboard users can use it */
-.skip-link:focus{
-  left:16px;
-  top:16px;
-  z-index:999;
-}
-
 
 /* =========================
-   Hero
+   ACCESSIBILITY
 ========================= */
 
-.hero{
-  padding: 60px 18px 34px;
-  border-bottom: 1px solid rgba(255,255,255,0.10);
-
-  /* relative positioning is needed because I add a background overlay
-     using ::before */
-  position: relative;
-  overflow:hidden;
+/* Skip link is hidden by default */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: -999px;
+  background: #000;
+  color: #fff;
+  padding: 10px 12px;
+  border-radius: 12px;
 }
 
-/* Decorative background grid behind the hero section */
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:-200px -200px -200px -200px;
+/* Skip link appears when focused */
+.skip-link:focus {
+  left: 16px;
+  top: 16px;
+  z-index: 999;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 60px 18px 34px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Decorative diagonal grid effect behind the hero */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -200px;
   background:
     repeating-linear-gradient(
       45deg,
-      rgba(255,255,255,0.06) 0px,
-      rgba(255,255,255,0.06) 1px,
-      rgba(255,255,255,0.00) 1px,
-      rgba(255,255,255,0.00) 10px
+      rgba(255, 255, 255, 0.06) 0px,
+      rgba(255, 255, 255, 0.06) 1px,
+      rgba(255, 255, 255, 0) 1px,
+      rgba(255, 255, 255, 0) 10px
     );
-  opacity:0.22;
+  opacity: 0.22;
   transform: rotate(-6deg);
 }
 
-.hero-inner{
+/* Centers the hero content */
+.hero-inner {
   position: relative;
   max-width: 1060px;
   margin: 0 auto;
 }
 
-/* Small label shown above the page title */
-.badge{
-  display:inline-block;
-  margin:0 0 12px;
+/* Small badge label */
+.badge {
+  display: inline-block;
+  margin: 0 0 12px;
   padding: 8px 12px;
   border-radius: 999px;
-  color: rgba(234,255,223,0.92);
-  border: 1px solid rgba(234,255,223,0.22);
-  background: rgba(255,255,255,0.06);
+  color: rgba(234, 255, 223, 0.92);
+  border: 1px solid rgba(234, 255, 223, 0.22);
+  background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(8px);
   font-weight: 600;
   letter-spacing: 0.4px;
 }
 
-/* Large hero heading */
-.hero h1{
+/* Main page heading */
+.hero h1 {
   margin: 0;
   font-family: "Anton", sans-serif;
   font-size: 92px;
   line-height: 0.95;
   letter-spacing: 0.8px;
   color: #eaffdf;
-  text-shadow: 0 18px 60px rgba(0,0,0,0.6);
+  text-shadow: 0 18px 60px rgba(0, 0, 0, 0.6);
 }
 
-.hero-lead{
+/* Intro text */
+.hero-lead {
   margin: 14px 0 18px;
-  color: rgba(234,255,223,0.88);
-  font-size: 18px;
   max-width: 68ch;
+  color: rgba(234, 255, 223, 0.88);
+  font-size: 18px;
+  line-height: 1.6;
 }
 
-
-/* Navigation buttons that jump to each section */
-.hero-nav{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
+/* Hero navigation container */
+.hero-nav {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
-.hero-nav a{
-  text-decoration:none;
-  color: rgba(234,255,223,0.95);
-  border: 1px solid rgba(234,255,223,0.22);
-  background: rgba(255,255,255,0.06);
+/* Hero navigation links */
+.hero-nav a {
+  display: inline-block;
+  text-decoration: none;
+  color: rgba(234, 255, 223, 0.95);
+  border: 1px solid rgba(234, 255, 223, 0.22);
+  background: rgba(255, 255, 255, 0.06);
   padding: 10px 14px;
   border-radius: 999px;
   backdrop-filter: blur(8px);
-
-  /* Small animation when hovering */
-  transition: transform 160ms ease, background 160ms ease;
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
 }
 
-.hero-nav a:hover{
+/* Hover effect for nav buttons */
+.hero-nav a:hover {
   transform: translateY(-1px);
-  background: rgba(255,255,255,0.10);
+  background: rgba(255, 255, 255, 0.1);
 }
 
+/* Active section link styling */
+.hero-nav a.is-active {
+  background: rgba(223, 247, 213, 0.18);
+  border-color: rgba(223, 247, 213, 0.55);
+  transform: translateY(-1px);
+}
 
 /* =========================
-   Main card
+   MAIN CONTENT CARD
 ========================= */
 
-.page{
+.page {
   padding: 26px 18px 44px;
 }
 
-/* Main container for the content area */
-.card{
+/* Main glass-style card */
+.card {
   max-width: 1060px;
   margin: 0 auto;
   background: var(--glass);
-  border: 1px solid rgba(255,255,255,0.35);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 26px;
   box-shadow: var(--shadow);
   backdrop-filter: blur(12px);
   overflow: hidden;
 }
 
-
-/* layout with timeline rail */
-
-/* Grid layout used to create the vertical timeline effect */
-.layout{
-  display:grid;
+/* Layout with left rail and content */
+.layout {
+  display: grid;
   grid-template-columns: 56px 1fr;
 }
 
-/* Decorative left column for the timeline line */
-.rail{
+/* Decorative rail on the left */
+.rail {
   position: relative;
-  background: linear-gradient(180deg, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.00) 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
-/* Vertical timeline line */
-.rail-line{
-  position:absolute;
+/* Vertical line inside the rail */
+.rail-line {
+  position: absolute;
   left: 50%;
   top: 28px;
   bottom: 28px;
   width: 2px;
   transform: translateX(-50%);
-  background: linear-gradient(180deg, rgba(47,111,13,0.65) 0%, rgba(47,111,13,0.10) 70%, rgba(47,111,13,0.00) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(47, 111, 13, 0.65) 0%,
+    rgba(47, 111, 13, 0.1) 70%,
+    rgba(47, 111, 13, 0) 100%
+  );
 }
 
-.content{
+/* Right content area */
+.content {
   padding: 10px 0;
 }
 
-
 /* =========================
-   Sections
+   SECTIONS
 ========================= */
 
-/* Each story section of the page */
-.section{
-  padding: 30px 34px 28px;
+/* Each section of the story */
+.section {
   position: relative;
+  padding: 30px 34px 28px;
 }
 
-/* Adds a divider between sections */
-.section + .section{
-  border-top: 1px solid rgba(0,0,0,0.10);
+/* Divider between sections */
+.section + .section {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* Section heading layout */
-.section-head{
-  display:flex;
-  align-items:center;
+/* Heading row of each section */
+.section-head {
+  display: flex;
+  align-items: center;
   gap: 14px;
   margin-bottom: 12px;
 }
 
-/* Decorative dot that connects to the timeline */
-.dot{
+/* Green timeline dot */
+.dot {
   width: 14px;
   height: 14px;
   border-radius: 999px;
   background: linear-gradient(180deg, var(--green) 0%, var(--green2) 100%);
-  box-shadow: 0 10px 22px rgba(47,111,13,0.35);
+  box-shadow: 0 10px 22px rgba(47, 111, 13, 0.35);
+  flex-shrink: 0;
 }
 
-h2{
-  margin:0;
-  font-family:"Anton", sans-serif;
+/* Section headings */
+h2 {
+  margin: 0;
+  font-family: "Anton", sans-serif;
   font-size: 48px;
   letter-spacing: 0.35px;
   color: var(--green2);
 }
 
-
-/* =========================
-   Feature / fact box
-========================= */
-
-/* Highlight box used to display the "Did you know?" fun fact */
-.feature{
-  margin-top: 22px;
-  border-radius: 18px;
-  padding: 20px 20px;
-  background:
-    radial-gradient(260px 160px at 85% 0%, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 65%),
-    linear-gradient(180deg, var(--green) 0%, var(--green2) 100%);
-  color:#fff;
-  box-shadow: var(--soft);
-  position: relative;
-  overflow:hidden;
+/* Paragraph styling in content sections */
+.section p {
+  margin: 0 0 16px;
+  line-height: 1.8;
+  color: var(--text);
 }
 
-
 /* =========================
-   Footer
+   FEATURE BOX
 ========================= */
 
-.footer{
+/* Fun fact card */
+.feature {
+  margin-top: 22px;
+  border-radius: 18px;
+  padding: 20px;
+  background:
+    radial-gradient(260px 160px at 85% 0%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 65%),
+    linear-gradient(180deg, var(--green) 0%, var(--green2) 100%);
+  color: #fff;
+  box-shadow: var(--soft);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top row inside feature box */
+.feature-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+/* Feature title */
+.feature h3 {
+  margin: 0;
+  font-size: 22px;
+}
+
+/* Small tag in the feature box */
+.feature-tag {
+  margin: 0;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+/* Feature paragraph */
+.feature-text {
+  margin: 0;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
   max-width: 1060px;
   margin: 18px auto 0;
-  color: rgba(234,255,223,0.75);
+  color: rgba(234, 255, 223, 0.75);
   font-size: 14px;
 }
 
-
 /* =========================
-   Mobile polish
+   MOBILE RESPONSIVE DESIGN
 ========================= */
 
-/* Responsive adjustments for smaller screens */
-@media (max-width: 720px){
-  .hero h1{ font-size: 64px; }
-  .layout{ grid-template-columns: 1fr; }
-  .rail{ display:none; }
-  .section{ padding: 26px 18px; }
-  h2{ font-size: 38px; }
+@media (max-width: 720px) {
+  .hero h1 {
+    font-size: 64px;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .rail {
+    display: none;
+  }
+
+  .section {
+    padding: 26px 18px;
+  }
+
+  h2 {
+    font-size: 38px;
+  }
 }
 
+/* =========================
+   REDUCED MOTION SUPPORT
+========================= */
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 
-@media (prefers-reduced-motion: reduce){
-  .hero-nav a{ transition: none; }
+  .hero-nav a {
+    transition: none;
+  }
 }
