@@ -8,21 +8,25 @@
 </head>
 
 <body>
+  <div class="page-bg"></div>
+
   <header class="header">
     <div class="header-inner">
-      <h1>J's Gallery</h1>
+      <h1 class="reveal">J's Gallery</h1>
 
       <nav class="nav" aria-label="Primary">
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Gallery</a>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
       </nav>
     </div>
   </header>
 
   <main class="container">
-    <section class="intro" aria-label="Intro">
-      <div class="text">
+    <section id="home" class="intro reveal" aria-label="Intro">
+      <div class="text glass-card">
+        <div class="section-tag">Visual Story</div>
+
         <p>
           Lorem ipsum odor amet, consectetuer adipiscing elit. Praesent mollis
           adipiscing per id libero libero. Tempus pretium netus molestie scelerisque
@@ -42,52 +46,111 @@
           ultrices. Praesent tellus consequat phasellus cubilia mattis mauris natoque
           litora. Fringilla cursus montes inceptos nec venenatis platea.
         </p>
+
+        <div class="intro-actions">
+          <button id="openFeatureBtn" class="button">View Featured Photo</button>
+          <button id="surpriseBtn" class="button button-secondary">Surprise Me</button>
+        </div>
       </div>
 
-      <figure class="feature" aria-label="Featured photo">
+      <figure class="feature glass-card reveal" aria-label="Featured photo">
         <img src="Images And Video/COW.jpg" alt="Highland cow on a beach" />
-        <figcaption>Featured photo</figcaption>
+        <figcaption>
+          <span>Featured photo</span>
+          <span class="caption-note">Highland cow on a beach</span>
+        </figcaption>
       </figure>
     </section>
 
-    <section class="gallery" aria-label="Gallery collage">
-      <!-- Collage order preserved exactly -->
-      <div class="collage">
+    <section id="about" class="about-panel glass-card reveal" aria-label="About gallery">
+      <div>
+        <p class="about-label">About this collection</p>
+        <h2>Minimalist gallery, upgraded with motion and interaction</h2>
+      </div>
+
+      <div class="stats">
+        <div class="stat-card">
+          <span class="stat-number" data-target="6">0</span>
+          <span class="stat-label">Visual works</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" data-target="1">0</span>
+          <span class="stat-label">Video feature</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" data-target="3">0</span>
+          <span class="stat-label">Main sections</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="gallery reveal" aria-label="Gallery collage">
+      <div class="gallery-top">
+        <div>
+          <p class="about-label">Collection</p>
+          <h2>Gallery Collage</h2>
+        </div>
+
+        <div class="gallery-actions">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="image">Images</button>
+          <button class="filter-btn" data-filter="video">Video</button>
+        </div>
+      </div>
+
+      <div class="collage glass-card">
         <!-- Row 1 -->
-        <figure class="tile t1">
-          <video class="media" controls poster="Images And Video/video.mp4">
+        <figure class="tile t1 tilt-card reveal" data-type="video" data-title="Featured Video">
+          <video class="media" controls poster="">
             <source src="Images And Video/video.mp4" type="video/mp4" />
           </video>
+          <figcaption class="tile-caption">Featured video</figcaption>
         </figure>
 
-        <figure class="tile t2">
-          <img class="media" src="Images And Video/img4598.jpg" alt="Foggy station lights" />
+        <figure class="tile t2 tilt-card reveal" data-type="image" data-title="Foggy station lights">
+          <img class="media zoomable" src="Images And Video/img4598.jpg" alt="Foggy station lights" />
+          <figcaption class="tile-caption">Foggy station lights</figcaption>
         </figure>
 
         <!-- Row 2 -->
-        <figure class="tile t3">
-          <img class="media" src="Images And Video/img4532.jpg" alt="Vintage camera" />
+        <figure class="tile t3 tilt-card reveal" data-type="image" data-title="Vintage camera">
+          <img class="media zoomable" src="Images And Video/img4532.jpg" alt="Vintage camera" />
+          <figcaption class="tile-caption">Vintage camera</figcaption>
         </figure>
 
-        <figure class="tile t4">
-          <img class="media" src="Images And Video/photo_2018_02_01.jpg" alt="Snowy mountains" />
+        <figure class="tile t4 tilt-card reveal" data-type="image" data-title="Snowy mountains">
+          <img class="media zoomable" src="Images And Video/photo_2018_02_01.jpg" alt="Snowy mountains" />
+          <figcaption class="tile-caption">Snowy mountains</figcaption>
         </figure>
 
         <!-- Row 3 -->
-        <figure class="tile t5">
-          <!-- swap this src to your hills landscape filename if needed -->
-          <img class="media" src="Images And Video/photo_2018_02_31.jpg" alt="Landscape hills" />
+        <figure class="tile t5 tilt-card reveal" data-type="image" data-title="Landscape hills">
+          <img class="media zoomable" src="Images And Video/photo_2018_02_31.jpg" alt="Landscape hills" />
+          <figcaption class="tile-caption">Landscape hills</figcaption>
         </figure>
 
-        <figure class="tile t6">
-          <img class="media" src="Images And Video/johns car jpg.jpg" alt="Snowy cars and building" />
+        <figure class="tile t6 tilt-card reveal" data-type="image" data-title="Snowy cars and building">
+          <img class="media zoomable" src="Images And Video/johns car jpg.jpg" alt="Snowy cars and building" />
+          <figcaption class="tile-caption">Snowy cars and building</figcaption>
         </figure>
       </div>
     </section>
 
-    <footer class="footer">
+    <footer class="footer reveal">
       <p>© J’s Gallery</p>
     </footer>
   </main>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close preview">&times;</button>
+    <div class="lightbox-content">
+      <img id="lightboxImage" src="" alt="Expanded gallery view" />
+      <p id="lightboxCaption"></p>
+    </div>
+  </div>
+
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Back to top">↑</button>
+
+  <script src="script.js"></script>
 </body>
 </html>
