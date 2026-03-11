@@ -1,20 +1,33 @@
 <!doctype html>
+<!-- HTML5 document type -->
+
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
+  <!-- Allows most characters to display properly -->
+
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <!-- Makes the site responsive on different screen sizes -->
+
   <title>J's Gallery</title>
+
   <link rel="stylesheet" href="style.css" />
+  <!-- Links the CSS file for styling -->
 </head>
 
 <body>
-  <div class="page-bg"></div>
 
   <header class="header">
+    <!-- Top navigation area -->
+
     <div class="header-inner">
       <h1 class="reveal">J's Gallery</h1>
+      <!-- Website title -->
 
-      <nav class="nav" aria-label="Primary">
+      <nav class="nav">
+        <!-- Navigation menu that scrolls to sections -->
+
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#gallery">Gallery</a>
@@ -23,12 +36,17 @@
   </header>
 
   <main class="container">
-    <section id="home" class="intro reveal" aria-label="Intro">
+    <!-- Main content of the webpage -->
+
+    <section id="home" class="intro reveal">
+      <!-- Intro/Home section -->
+
       <div class="text glass-card">
+
         <div class="section-tag">Visual Story</div>
 
-        <p>
-          Lorem ipsum odor amet, consectetuer adipiscing elit. Praesent mollis
+      <p>
+        Lorem ipsum odor amet, consectetuer adipiscing elit. Praesent mollis
           adipiscing per id libero libero. Tempus pretium netus molestie scelerisque
           facilisis tristique volutpat ultricies. Nostra ligula ac pulvinar rutrum non
           rhoncus mauris facilisi. Quisque maximus commodo sollicitudin, montes congue
@@ -36,25 +54,31 @@
           aptent ullamcorper sagittis posuere dignissim morbi scelerisque. Fringilla
           primis sagittis lorem erat integer; vulputate nullam. Porta purus habitant id
           fermentum nec ex, proin mauris sem.
-        </p>
+      </p>
 
-        <p>
-          Lectus ultrices nibh lobortis tempus facilisis sit conubia taciti. Non
+      <p>
+        Lectus ultrices nibh lobortis tempus facilisis sit conubia taciti. Non
           torquent amet nibh elit ante fermentum praesent cras. Et suspendisse egestas
           eros erat aptent sollicitudin. Nulla tortor purus posuere auctor himenaeos
           malesuada. Turpis phasellus enim venenatis aliquam pellentesque senectus, id
           ultrices. Praesent tellus consequat phasellus cubilia mattis mauris natoque
           litora. Fringilla cursus montes inceptos nec venenatis platea.
-        </p>
+      </p>
+
 
         <div class="intro-actions">
+          <!-- Buttons that trigger JavaScript actions -->
+
           <button id="openFeatureBtn" class="button">View Featured Photo</button>
           <button id="surpriseBtn" class="button button-secondary">Surprise Me</button>
         </div>
       </div>
 
-      <figure class="feature glass-card reveal" aria-label="Featured photo">
+      <figure class="feature glass-card reveal">
+        <!-- Featured image section -->
+
         <img src="Images And Video/COW.jpg" alt="Highland cow on a beach" />
+
         <figcaption>
           <span>Featured photo</span>
           <span class="caption-note">Highland cow on a beach</span>
@@ -62,21 +86,24 @@
       </figure>
     </section>
 
-    <section id="about" class="about-panel glass-card reveal" aria-label="About gallery">
-      <div>
-        <p class="about-label">About this collection</p>
-        <h2>Minimalist gallery, upgraded with motion and interaction</h2>
-      </div>
+    <section id="about" class="about-panel glass-card reveal">
+      <!-- About section explaining the gallery -->
+
+      <h2>Minimalist gallery, upgraded with motion and interaction</h2>
 
       <div class="stats">
+        <!-- Stats that will animate using JavaScript -->
+
         <div class="stat-card">
           <span class="stat-number" data-target="6">0</span>
           <span class="stat-label">Visual works</span>
         </div>
+
         <div class="stat-card">
           <span class="stat-number" data-target="1">0</span>
           <span class="stat-label">Video feature</span>
         </div>
+
         <div class="stat-card">
           <span class="stat-number" data-target="3">0</span>
           <span class="stat-label">Main sections</span>
@@ -84,73 +111,86 @@
       </div>
     </section>
 
-    <section id="gallery" class="gallery reveal" aria-label="Gallery collage">
-      <div class="gallery-top">
-        <div>
-          <p class="about-label">Collection</p>
-          <h2>Gallery Collage</h2>
-        </div>
+    <section id="gallery" class="gallery reveal">
+      <!-- Main gallery section -->
 
-        <div class="gallery-actions">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="image">Images</button>
-          <button class="filter-btn" data-filter="video">Video</button>
-        </div>
+      <div class="gallery-actions">
+        <!-- Filter buttons to show images/video -->
+
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="image">Images</button>
+        <button class="filter-btn" data-filter="video">Video</button>
       </div>
 
       <div class="collage glass-card">
-        <!-- Row 1 -->
-        <figure class="tile t1 tilt-card reveal" data-type="video" data-title="Featured Video">
-          <video class="media" controls poster="">
+        <!-- Container holding gallery media -->
+
+        <figure class="tile t1" data-type="video">
+          <!-- Video item in the gallery -->
+
+          <video class="media" controls>
             <source src="Images And Video/video.mp4" type="video/mp4" />
           </video>
-          <figcaption class="tile-caption">Featured video</figcaption>
+
+          <figcaption>Featured video</figcaption>
         </figure>
 
-        <figure class="tile t2 tilt-card reveal" data-type="image" data-title="Foggy station lights">
+        <figure class="tile t2" data-type="image">
+          <!-- Image that can be clicked to zoom -->
+
           <img class="media zoomable" src="Images And Video/img4598.jpg" alt="Foggy station lights" />
-          <figcaption class="tile-caption">Foggy station lights</figcaption>
+          <figcaption>Foggy station lights</figcaption>
         </figure>
 
-        <!-- Row 2 -->
-        <figure class="tile t3 tilt-card reveal" data-type="image" data-title="Vintage camera">
+        <!-- Other gallery images -->
+
+        <figure class="tile t3" data-type="image">
           <img class="media zoomable" src="Images And Video/img4532.jpg" alt="Vintage camera" />
-          <figcaption class="tile-caption">Vintage camera</figcaption>
+          <figcaption>Vintage camera</figcaption>
         </figure>
 
-        <figure class="tile t4 tilt-card reveal" data-type="image" data-title="Snowy mountains">
+        <figure class="tile t4" data-type="image">
           <img class="media zoomable" src="Images And Video/photo_2018_02_01.jpg" alt="Snowy mountains" />
-          <figcaption class="tile-caption">Snowy mountains</figcaption>
+          <figcaption>Snowy mountains</figcaption>
         </figure>
 
-        <!-- Row 3 -->
-        <figure class="tile t5 tilt-card reveal" data-type="image" data-title="Landscape hills">
+        <figure class="tile t5" data-type="image">
           <img class="media zoomable" src="Images And Video/photo_2018_02_31.jpg" alt="Landscape hills" />
-          <figcaption class="tile-caption">Landscape hills</figcaption>
+          <figcaption>Landscape hills</figcaption>
         </figure>
 
-        <figure class="tile t6 tilt-card reveal" data-type="image" data-title="Snowy cars and building">
+        <figure class="tile t6" data-type="image">
           <img class="media zoomable" src="Images And Video/johns car jpg.jpg" alt="Snowy cars and building" />
-          <figcaption class="tile-caption">Snowy cars and building</figcaption>
+          <figcaption>Snowy cars and building</figcaption>
         </figure>
+
       </div>
     </section>
 
     <footer class="footer reveal">
+      <!-- Footer at bottom of page -->
+
       <p>© J’s Gallery</p>
     </footer>
+
   </main>
 
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Close preview">&times;</button>
+  <div class="lightbox" id="lightbox">
+    <!-- Popup viewer for enlarged images -->
+
+    <button class="lightbox-close" id="lightboxClose">&times;</button>
+
     <div class="lightbox-content">
       <img id="lightboxImage" src="" alt="Expanded gallery view" />
       <p id="lightboxCaption"></p>
     </div>
   </div>
 
-  <button class="scroll-top" id="scrollTopBtn" aria-label="Back to top">↑</button>
+  <button class="scroll-top" id="scrollTopBtn">↑</button>
+  <!-- Button that scrolls the page back to the top -->
 
   <script src="script.js"></script>
+  <!-- Links the JavaScript file that controls interactivity -->
+
 </body>
 </html>

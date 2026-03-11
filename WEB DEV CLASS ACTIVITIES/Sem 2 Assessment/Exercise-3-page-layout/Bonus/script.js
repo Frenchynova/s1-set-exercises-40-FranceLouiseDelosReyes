@@ -1,3 +1,4 @@
+// Selecting important elements from the page
 const revealElements = document.querySelectorAll(".reveal");
 const statNumbers = document.querySelectorAll(".stat-number");
 const filterButtons = document.querySelectorAll(".filter-btn");
@@ -14,6 +15,7 @@ const navLinks = document.querySelectorAll(".nav a");
 const sections = document.querySelectorAll("main section[id]");
 const featureImage = document.querySelector(".feature img");
 
+// Makes elements appear when the user scrolls down
 function revealOnScroll() {
   revealElements.forEach((element) => {
     const rect = element.getBoundingClientRect();
@@ -23,6 +25,7 @@ function revealOnScroll() {
   });
 }
 
+// Animates the numbers in the stats section when they come into view
 const statsObserver = new IntersectionObserver((entries, observer) => {
   entries.forEach((entry) => {
     if (!entry.isIntersecting) return;
@@ -49,6 +52,7 @@ const statsObserver = new IntersectionObserver((entries, observer) => {
 
 statNumbers.forEach((stat) => statsObserver.observe(stat));
 
+// Filters gallery items depending on which button is clicked
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
     filterButtons.forEach((btn) => btn.classList.remove("active"));
@@ -68,6 +72,7 @@ filterButtons.forEach((button) => {
   });
 });
 
+// Opens the lightbox with the selected image
 function openLightbox(src, caption) {
   lightboxImage.src = src;
   lightboxCaption.textContent = caption || "";
@@ -76,36 +81,42 @@ function openLightbox(src, caption) {
   document.body.style.overflow = "hidden";
 }
 
+// Closes the lightbox
 function closeLightbox() {
   lightbox.classList.remove("open");
   lightbox.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
 }
 
+// Lets gallery images open in the lightbox when clicked
 zoomableImages.forEach((image) => {
   image.addEventListener("click", () => {
     openLightbox(image.src, image.alt);
   });
 });
 
+// Opens the featured image when the button is clicked
 openFeatureBtn.addEventListener("click", () => {
   openLightbox(featureImage.src, featureImage.alt);
 });
 
 lightboxClose.addEventListener("click", closeLightbox);
 
+// Closes the lightbox if the dark background is clicked
 lightbox.addEventListener("click", (event) => {
   if (event.target === lightbox) {
     closeLightbox();
   }
 });
 
+// Closes the lightbox when Escape key is pressed
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     closeLightbox();
   }
 });
 
+// Opens a random visible image when Surprise Me is clicked
 surpriseBtn.addEventListener("click", () => {
   const imageTiles = Array.from(document.querySelectorAll('.tile[data-type="image"]'));
   const visibleImageTiles = imageTiles.filter((tile) => !tile.classList.contains("is-hidden"));
@@ -119,12 +130,14 @@ surpriseBtn.addEventListener("click", () => {
 window.addEventListener("scroll", () => {
   revealOnScroll();
 
+  // Shows the scroll-to-top button after scrolling down
   if (window.scrollY > 300) {
     scrollTopBtn.classList.add("show");
   } else {
     scrollTopBtn.classList.remove("show");
   }
 
+  // Highlights the nav link for the section currently on screen
   let currentSection = "";
 
   sections.forEach((section) => {
@@ -144,6 +157,7 @@ window.addEventListener("scroll", () => {
   });
 });
 
+// Smoothly scrolls back to the top of the page
 scrollTopBtn.addEventListener("click", () => {
   window.scrollTo({
     top: 0,
@@ -151,6 +165,7 @@ scrollTopBtn.addEventListener("click", () => {
   });
 });
 
+// Adds a small 3D tilt effect when hovering over gallery items
 tiles.forEach((tile) => {
   tile.addEventListener("mousemove", (event) => {
     if (window.innerWidth <= 980) return;
@@ -170,4 +185,5 @@ tiles.forEach((tile) => {
   });
 });
 
+// Runs once when the page first loads
 revealOnScroll();
