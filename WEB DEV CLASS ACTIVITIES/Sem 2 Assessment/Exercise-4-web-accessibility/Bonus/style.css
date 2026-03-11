@@ -10,6 +10,8 @@ body {
   margin: 0;
   font-family: "Inter", Arial, sans-serif;
   color: #1f2937;
+
+  /* Adds a background image with a light overlay so text stays readable */
   background:
     linear-gradient(rgba(245, 238, 230, 0.92), rgba(245, 238, 230, 0.96)),
     url("Photos/OceanPhoto.jpg") center / cover fixed no-repeat;
@@ -25,6 +27,7 @@ img {
   margin: 0 auto;
 }
 
+/* Hidden until focused, used for accessibility */
 .skip-link {
   position: absolute;
   left: 12px;
@@ -83,6 +86,7 @@ img {
   line-height: 1.6;
 }
 
+/* Basket button style */
 .cart-button {
   display: inline-flex;
   align-items: center;
@@ -94,12 +98,37 @@ img {
   border-radius: 999px;
   font-weight: 800;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+}
+
+.cart-button:hover,
+.cart-button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18);
 }
 
 .cart-button img {
   width: 22px;
   height: 22px;
   filter: invert(1);
+}
+
+.cart-count {
+  min-width: 28px;
+  height: 28px;
+  padding: 0 8px;
+  border-radius: 999px;
+  display: inline-grid;
+  place-items: center;
+  background: #1d8fa8;
+  color: #fff;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+/* This class is added by JavaScript when the basket number changes */
+.cart-count.bump {
+  animation: bump 0.45s ease;
 }
 
 .hero {
@@ -112,6 +141,12 @@ img {
     linear-gradient(to right, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.72)),
     url("Photos/ValleyPhoto.jpg") center / cover no-repeat;
   box-shadow: 0 16px 38px rgba(0, 0, 0, 0.1);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.hero:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.14);
 }
 
 .hero-content {
@@ -163,6 +198,7 @@ img {
   line-height: 1.7;
 }
 
+/* Uses CSS Grid to place the cards in columns */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(280px, 1fr));
@@ -170,16 +206,29 @@ img {
 }
 
 .card {
+  position: relative;
   background: #fff;
   border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 14px 35px rgba(0, 0, 0, 0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transform-style: preserve-3d;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.14);
 }
 
 .card-image {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.card:hover .card-image {
+  transform: scale(1.06);
 }
 
 .card-body {
@@ -199,6 +248,8 @@ img {
 }
 
 .card-button {
+  position: relative;
+  overflow: hidden;
   border: 0;
   padding: 14px 18px;
   border-radius: 14px;
@@ -207,6 +258,29 @@ img {
   font-size: 1rem;
   font-weight: 800;
   cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.card-button:hover,
+.card-button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 22px rgba(29, 143, 168, 0.28);
+  background: #167a90;
+}
+
+/* Added by JavaScript when the button is clicked */
+.card-button.added {
+  animation: pulse-success 0.45s ease;
+}
+
+/* Ripple circle that gets created with JavaScript */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  background: rgba(255, 255, 255, 0.45);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
 }
 
 .site-footer {
@@ -239,17 +313,73 @@ img {
   font-weight: 700;
 }
 
+/* Clear focus outline for keyboard users */
 a:focus,
 button:focus {
   outline: 3px solid #111;
   outline-offset: 3px;
 }
 
-button:hover,
-.cart-button:hover {
-  opacity: 0.92;
+/* Elements start hidden and slide up when they appear on screen */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
+/* JavaScript adds this class when the item enters the screen */
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Decorative floating animation for the divider image */
+.floating {
+  animation: floaty 4s ease-in-out infinite;
+}
+
+/* Keyframes define the actual animation movement */
+@keyframes floaty {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes bump {
+  0% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-success {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.07);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Tablet/mobile layout changes */
 @media (max-width: 900px) {
   .header-row {
     flex-direction: column;
@@ -279,5 +409,24 @@ button:hover,
 
   .card-body {
     padding: 18px;
+  }
+}
+
+/* Reduces/removes motion for users who prefer less animation */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }

@@ -2,31 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+
+  <!-- Makes the page scale properly on phones/tablets -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>The Wondering Photographer</title>
+
+  <!-- Google fonts for the main heading and body text -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+  <!-- Links the external stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Accessibility link so keyboard users can skip straight to the main content -->
   <a href="#main" class="skip-link">Skip to main content</a>
 
   <header class="site-header">
-    <div class="container header-row">
+    <div class="container header-row reveal">
       <div class="brand">
-        <img src="Photos/TheDivider.png" alt="" class="divider" aria-hidden="true">
+        <!-- Decorative image so alt is empty -->
+        <img src="Photos/TheDivider.png" alt="" class="divider floating" aria-hidden="true">
+
         <h1>The Wondering Photographer</h1>
         <p class="tagline">Fine art travel photography prints from unforgettable journeys.</p>
       </div>
 
+      <!-- Basket button with live number count -->
       <a href="#" class="cart-button" aria-label="Go to checkout">
         <img src="Photos/shopping.svg" alt="" aria-hidden="true">
         <span>Basket</span>
+
+        <!-- aria-live means screen readers will announce the updated number -->
+        <span class="cart-count" aria-live="polite">0</span>
       </a>
     </div>
 
-    <div class="container hero">
+    <!-- Hero section at the top of the page -->
+    <div class="container hero reveal">
       <div class="hero-content">
         <p class="section-label">Travel print collection</p>
         <h2>Bring remarkable landscapes into your space.</h2>
@@ -39,7 +54,7 @@
   </header>
 
   <main id="main" class="container main-content">
-    <section class="intro-card" aria-labelledby="gallery-title">
+    <section class="intro-card reveal" aria-labelledby="gallery-title">
       <p class="section-label">Current gallery</p>
       <h2 id="gallery-title">Featured prints</h2>
       <p>
@@ -48,8 +63,9 @@
       </p>
     </section>
 
+    <!-- Grid of photo cards -->
     <section class="gallery-grid" aria-label="Photography print gallery">
-      <article class="card">
+      <article class="card reveal">
         <img src="Photos/OceanPhoto.jpg" alt="People sitting on pale rock cliffs beside a calm blue sea under a pastel sunset sky" class="card-image">
         <div class="card-body">
           <h3>Greenland Coast</h3>
@@ -58,7 +74,7 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card reveal">
         <img src="Photos/BridgePhoto.jpg" alt="Low-angle view looking up at the Golden Gate Bridge against a vivid blue sky" class="card-image">
         <div class="card-body">
           <h3>Golden Gate Bridge</h3>
@@ -67,7 +83,7 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card reveal">
         <img src="Photos/ValleyPhoto.jpg" alt="Wide mountain valley with water stretching through rocky cliffs under large clouds" class="card-image">
         <div class="card-body">
           <h3>Glacial River Valley</h3>
@@ -76,7 +92,7 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card reveal">
         <img src="Photos/WaterfallPhoto.jpg" alt="Large waterfall falling into a dark pool surrounded by mossy green rocks" class="card-image">
         <div class="card-body">
           <h3>Waterfall Soundscape</h3>
@@ -87,7 +103,7 @@
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer reveal">
     <div class="container footer-content">
       <h3>The Wondering Photographer</h3>
       <p>Copyright The Wondering Photographer 2018.</p>
@@ -101,5 +117,8 @@
       </nav>
     </div>
   </footer>
+
+  <!-- Links the JavaScript file for animations and interactions -->
+  <script src="script.js"></script>
 </body>
 </html>
